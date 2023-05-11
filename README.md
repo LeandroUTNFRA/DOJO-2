@@ -19,3 +19,7 @@ cada led representa una estacion, el display 7 segmentos indica que numero de es
 con el if verifico que este en HIHG cuando apreto el  boton cambia a LOW y ejecuta el codigo
 
 ![SPD 2](https://github.com/LeandroUTNFRA/DOJO-2/assets/122940722/5214629d-8bcc-49fa-8eac-41db43b54c26)
+
+#  ENLACE DE PROYECTO
+
+https://www.tinkercad.com/things/l3ZN2hhsvJS-subte-leandro-escobar/editel?sharecode=08nicrO5kFpaNlD_s7J5wOeKEEhc3TDCZ9KoC-8t9hY
