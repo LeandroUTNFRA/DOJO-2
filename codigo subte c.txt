@@ -1,0 +1,133 @@
+// C++ code
+//
+#define Constitucion 13 
+#define SanJuan 12
+#define Independencia 11
+#define Moreno 10
+
+//display 7 segmentos
+#define A 4
+#define B 3
+#define C 7
+#define D 8
+#define E 9
+#define F 5
+#define G 6
+#define boton A1
+
+
+void EncenderLeds(int led, int tiempo);
+void EncenderDisplay(int numero);
+void EncenderBuzzer(int led, int frecuencia,int tiempo);
+void setup()
+{
+  pinMode(13, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(A,OUTPUT);
+  pinMode(B,OUTPUT);
+  pinMode(C,OUTPUT);
+  pinMode(D,OUTPUT);
+  pinMode(E,OUTPUT);
+  pinMode(F,OUTPUT);
+  pinMode(G,OUTPUT);
+  pinMode(A0,OUTPUT);
+  pinMode(boton,INPUT);
+  Serial.begin(9600);
+  
+  
+}
+
+void loop()
+{
+  int boton1=analogRead(boton);
+  Serial.println(boton1);
+  if (boton1 == LOW){
+    EncenderLeds(Constitucion, 1000);
+  	EncenderDisplay(1);
+    EncenderLeds(SanJuan, 1000);
+  	EncenderDisplay(2);
+    EncenderLeds(Independencia, 1000);
+  	EncenderDisplay(3);
+    EncenderLeds(Moreno, 1000);
+  	EncenderDisplay(4);
+  }
+ }
+
+  
+
+  
+  
+ void EncenderLeds(int led, int tiempo)
+ {
+  digitalWrite(led,HIGH);
+  delay(tiempo);
+  digitalWrite(led,LOW);
+  }
+  
+void EncenderDisplay(int numero)
+{
+  switch(numero)
+  {
+  	case 1:
+    	EncenderBuzzer(A0,500,160);
+    	digitalWrite(B, HIGH);
+    	digitalWrite(C, HIGH);
+  		delay(1000);
+    	digitalWrite(B, LOW);
+    	digitalWrite(C , LOW);
+    	break;
+    case 2:
+    	EncenderBuzzer(A0,500,160);
+        digitalWrite(A, HIGH);
+    	digitalWrite(B, HIGH);
+        digitalWrite(D, HIGH);
+    	digitalWrite(E, HIGH);
+        digitalWrite(G, HIGH);
+  		delay(1000);
+    	digitalWrite(A, LOW);
+    	digitalWrite(B, LOW);
+    	digitalWrite(D, LOW);
+        digitalWrite(E, LOW);
+    	digitalWrite(G, LOW);
+    	break;
+        
+    case 3:
+    	EncenderBuzzer(A0,500,160);
+    	digitalWrite(A, HIGH);
+    	digitalWrite(B, HIGH);  		
+        digitalWrite(C, HIGH);
+    	digitalWrite(D, HIGH);
+        digitalWrite(G, HIGH);
+  		delay(1000);
+    	digitalWrite(A, LOW);  		
+    	digitalWrite(B, LOW);  		
+    	digitalWrite(C, LOW);  		
+        digitalWrite(D, LOW);  		
+    	digitalWrite(G, LOW);
+    	break;
+    case 4:
+    	EncenderBuzzer(A0,500,160);
+    	digitalWrite(B, HIGH);
+    	digitalWrite(C, HIGH);
+        digitalWrite(F, HIGH);
+        digitalWrite(G, HIGH);
+  		delay(1000);
+    	digitalWrite(B, LOW);
+    	digitalWrite(C, LOW);
+        digitalWrite(F, LOW);
+    	digitalWrite(G, LOW);
+    	break;
+  
+  }
+}
+
+void EncenderBuzzer(int led, int frecuencia,int tiempo){
+		tone(led,frecuencia);
+     	delay(tiempo);
+     	noTone(led);
+    	delay(tiempo);
+
+
+}
